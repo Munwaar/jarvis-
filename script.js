@@ -55,6 +55,14 @@ function sendMessage(){
         "I am Jarvis, your AI assistant.";
     }
 
+    else if(message.include("github"){
+        window.open(
+            "https://github.com/Munwaar","_blank"
+            );
+        reply=
+            "opening Github...,I guess time to lockin huh";
+    }
+
     else{
         reply =
         "Sorry, I don't understand.";
