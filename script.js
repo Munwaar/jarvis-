@@ -37,7 +37,7 @@ function sendMessage(){
         );
 
         reply =
-        "Opening YouTube...";
+        "Opening YouTube boss...";
     }
 
     else if(message.includes("google")){
