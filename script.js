@@ -71,6 +71,17 @@ function sendMessage(){
                 "showing one of your creations master";
         }
 
+            else if (message.include("chatgpt")){
+                window.open(
+                    "https://chatgpt.com/","_blank";
+                );
+
+               reply=
+            "opening chatgpt...,I guess time to lockin huh";
+    }
+
+                
+
     else{
         reply =
         "Sorry, I don't understand.";
