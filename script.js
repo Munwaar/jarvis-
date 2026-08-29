@@ -12,7 +12,7 @@ function sendMessage() {
     let reply = "";
 
     if (message.includes("hello")) {
-        reply = "Hello Munwaar!";
+        reply = "👋🏼 Hey";
     }
 
     else if (message.includes("time")) {
