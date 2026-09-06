@@ -10,7 +10,6 @@ function sendMessage() {
 
     const message = originalMessage.toLowerCase();
 
-    // Escape user input to prevent HTML injection
     const safeMessage = originalMessage
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -18,7 +17,6 @@ function sendMessage() {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 
-    // Show user message
     chat.innerHTML += `
         <div class="user">
             You: ${safeMessage}
@@ -26,10 +24,6 @@ function sendMessage() {
     `;
 
     let reply = "";
-
-    // =========================
-    // GREETINGS
-    // =========================
 
     if (
         message.includes("hello") ||
@@ -48,20 +42,12 @@ function sendMessage() {
         reply = greetings[Math.floor(Math.random() * greetings.length)];
     }
 
-    // =========================
-    // HOW ARE YOU
-    // =========================
-
     else if (
         message.includes("how are you") ||
         message.includes("how r u")
     ) {
         reply = "I'm running perfectly, boss. Systems are online ⚡";
     }
-
-    // =========================
-    // TIME
-    // =========================
 
     else if (
         message.includes("time") ||
@@ -70,10 +56,6 @@ function sendMessage() {
         reply = `🕐 Current time: ${new Date().toLocaleTimeString()}`;
     }
 
-    // =========================
-    // DATE
-    // =========================
-
     else if (
         message.includes("date") ||
         message.includes("today")
@@ -81,19 +63,11 @@ function sendMessage() {
         reply = `📅 Today is ${new Date().toDateString()}`;
     }
 
-    // =========================
-    // DAY
-    // =========================
-
     else if (message.includes("day")) {
         reply = `Today is ${new Date().toLocaleDateString("en-US", {
             weekday: "long"
         })}.`;
     }
-
-    // =========================
-    // WHO ARE YOU
-    // =========================
 
     else if (
         message.includes("who are you") ||
@@ -102,10 +76,6 @@ function sendMessage() {
         reply = "🤖 I am Jarvis, your personal AI assistant.";
     }
 
-    // =========================
-    // WHO CREATED YOU
-    // =========================
-
     else if (
         message.includes("who created you") ||
         message.includes("who made you")
@@ -113,36 +83,20 @@ function sendMessage() {
         reply = "I was created by my master. 😎";
     }
 
-    // =========================
-    // GOOGLE
-    // =========================
-
     else if (message.includes("open google")) {
         window.open("https://www.google.com", "_blank");
         reply = "🔎 Opening Google...";
     }
-
-    // =========================
-    // YOUTUBE
-    // =========================
 
     else if (message.includes("open youtube")) {
         window.open("https://www.youtube.com", "_blank");
         reply = "▶️ Opening YouTube...";
     }
 
-    // =========================
-    // GITHUB
-    // =========================
-
     else if (message.includes("open github")) {
         window.open("https://github.com/Munwaar", "_blank");
         reply = "💻 Opening your GitHub. Time to lock in!";
     }
-
-    // =========================
-    // PORTFOLIO
-    // =========================
 
     else if (
         message.includes("portfolio") ||
@@ -156,10 +110,6 @@ function sendMessage() {
         reply = "🚀 Showing one of your creations, master.";
     }
 
-    // =========================
-    // CHATGPT
-    // =========================
-
     else if (
         message.includes("open chatgpt") ||
         message.includes("chatgpt")
@@ -167,10 +117,6 @@ function sendMessage() {
         window.open("https://chatgpt.com/", "_blank");
         reply = "🧠 Opening ChatGPT...";
     }
-
-    // =========================
-    // SEARCH GOOGLE
-    // =========================
 
     else if (message.startsWith("search ")) {
 
@@ -188,10 +134,6 @@ function sendMessage() {
         }
     }
 
-    // =========================
-    // YOUTUBE SEARCH
-    // =========================
-
     else if (message.startsWith("play ")) {
 
         const query = originalMessage.substring(5).trim();
@@ -208,10 +150,6 @@ function sendMessage() {
         }
     }
 
-    // =========================
-    // WIKIPEDIA
-    // =========================
-
     else if (message.startsWith("wiki ")) {
 
         const query = originalMessage.substring(5).trim();
@@ -227,10 +165,6 @@ function sendMessage() {
             reply = "What should I look up?";
         }
     }
-
-    // =========================
-    // WEATHER
-    // =========================
 
     else if (message.startsWith("weather")) {
 
@@ -255,10 +189,6 @@ function sendMessage() {
         }
     }
 
-    // =========================
-    // JOKES
-    // =========================
-
     else if (
         message.includes("joke") ||
         message.includes("make me laugh")
@@ -274,10 +204,6 @@ function sendMessage() {
         reply = jokes[Math.floor(Math.random() * jokes.length)];
     }
 
-    // =========================
-    // MOTIVATION
-    // =========================
-
     else if (
         message.includes("motivate me") ||
         message.includes("motivation")
@@ -291,13 +217,8 @@ function sendMessage() {
             "🗿 Lock in. No excuses."
         ];
 
-        reply =
-            motivation[Math.floor(Math.random() * motivation.length)];
+        reply = motivation[Math.floor(Math.random() * motivation.length)];
     }
-
-    // =========================
-    // THANK YOU
-    // =========================
 
     else if (
         message.includes("thank you") ||
@@ -306,20 +227,12 @@ function sendMessage() {
         reply = "😎 Anytime, boss.";
     }
 
-    // =========================
-    // LOVE
-    // =========================
-
     else if (
         message.includes("i love you") ||
         message.includes("love you")
     ) {
         reply = "❤️ I appreciate that, boss.";
     }
-
-    // =========================
-    // CALCULATOR
-    // =========================
 
     else if (message.startsWith("calculate ")) {
 
@@ -329,7 +242,6 @@ function sendMessage() {
 
         try {
 
-            // Allow only numbers and basic operators
             if (!/^[0-9+\-*/().%\s]+$/.test(expression)) {
                 throw new Error("Invalid expression");
             }
@@ -345,10 +257,6 @@ function sendMessage() {
         }
     }
 
-    // =========================
-    // CLEAR CHAT
-    // =========================
-
     else if (
         message === "clear" ||
         message === "clear chat"
@@ -357,10 +265,6 @@ function sendMessage() {
         return;
     }
 
-    // =========================
-    // HELP
-    // =========================
-
     else if (
         message === "help" ||
         message.includes("what can you do")
@@ -368,7 +272,6 @@ function sendMessage() {
 
         reply = `
         🤖 Here's what I can do:<br><br>
-
         🕐 Tell time<br>
         📅 Tell date<br>
         🔎 Search Google<br>
@@ -381,27 +284,16 @@ function sendMessage() {
         😂 Tell jokes<br>
         🔥 Give motivation<br>
         🧮 Calculate numbers<br>
-        🧹 Clear chat<br><br>
-
-        Try: <b>"search Java tutorials"</b>
+        🧹 Clear chat
         `;
     }
 
-    // =========================
-    // DEFAULT
-    // =========================
-
     else {
-
         reply = `
             🤔 I don't understand that yet.<br>
             Try saying <b>"help"</b> to see what I can do.
         `;
     }
-
-    // =========================
-    // SHOW BOT RESPONSE
-    // =========================
 
     chat.innerHTML += `
         <div class="bot">
@@ -409,19 +301,10 @@ function sendMessage() {
         </div>
     `;
 
-    // Clear input
     input.value = "";
-
-    // Scroll to bottom
     chat.scrollTop = chat.scrollHeight;
 }
-```
 
-### 🔥 Add Enter-key support too
-
-Put this **outside** the function:
-
-```javascript
 document.getElementById("userInput").addEventListener("keydown", function(event) {
 
     if (event.key === "Enter") {
@@ -430,30 +313,3 @@ document.getElementById("userInput").addEventListener("keydown", function(event)
 
 });
 ```
-
-Now the user doesn't have to click the Send button every time.
-
-### 🧠 Commands you can test
-
-```text
-hello
-what time is it
-what is today's date
-who are you
-open youtube
-open google
-open github
-open portfolio
-open chatgpt
-search Java tutorials
-play lofi music
-wiki Elon Musk
-weather Chennai
-tell me a joke
-motivate me
-calculate 25 * 8
-what can you do
-clear chat
-```
-
-**Next level:** the biggest upgrade would be making Jarvis understand **natural sentences instead of exact keywords** — e.g. `"Can you find me some Java tutorials on YouTube?"` and automatically figure out that it should perform a YouTube search.
