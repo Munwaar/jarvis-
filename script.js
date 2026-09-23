@@ -29,7 +29,8 @@ function sendMessage() {
         message.includes("hello") ||
         message.includes("hi") ||
         message.includes("hey") ||
-        message.includes("yo")
+        message.includes("yo") ||
+        message.includes(("Gng")
     ) {
         const greetings = [
             "👋 Hey boss!",
