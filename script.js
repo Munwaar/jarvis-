@@ -37,6 +37,7 @@ function sendMessage() {
             "What's up, master? 😎",
             "Yo! Jarvis online and ready. ⚡",
             "Hey! What can I do for you?",
+            "I'm at your Service Master",
             "Welcome back, boss."
         ];
 
